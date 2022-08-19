@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 3002;
+const port = process.env.PORT || 3002;
 const middleware = require('./middleware')
 const path = require('path')
 const bodyParser = require("body-parser")
@@ -39,6 +39,7 @@ const usersApiRoute = require('./routes/api/users');
 const chatsApiRoute = require('./routes/api/chats');
 const messagesApiRoute = require('./routes/api/messages');
 const notificationsApiRoute = require('./routes/api/notifications');
+const { env } = require('process');
 
 app.use("/login", loginRoute);
 app.use("/register", registerRoute);
